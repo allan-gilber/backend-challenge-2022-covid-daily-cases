@@ -1,4 +1,4 @@
-type apiResponse = {
+export type apiResponse = {
     location: 'string',
     date: 'date',
     variant: 'string',
@@ -6,5 +6,3 @@ type apiResponse = {
     perc_sequences: 'number',
     num_sequences_total: 'number'
 }
-
-
