@@ -4,6 +4,9 @@ import { AddressInfo } from 'net';
 import connection from './connection';
 import { Request, Response } from 'express';
 import serverStatus from './endpoints/serverStatus';
+import multer from 'multer';
+
+const upload = multer({dest: 'uploads/'});
 
 const app = express();
 
