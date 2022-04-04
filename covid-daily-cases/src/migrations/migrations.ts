@@ -1,14 +1,14 @@
 import  connection  from '../connection';
 import csvToJson from 'csvtojson';
-import {apiResponse} from '../Types/types';
+import {covidDataStructure} from '../typesAndIntefaces';
 
 const printError = (error: any) => { console.log(error.sqlMessage || error.message); };
 
-let jsonData: null | apiResponse[] = null;
+let jsonData: null | covidDataStructure[] = null;
 
 const converToJson = async () => {
 	await csvToJson().fromFile('./src/data/covid-variants.csv').then(
-		(data: apiResponse[]): void => {
+		(data: covidDataStructure[]): void => {
 			jsonData = data;
 		}
 	);
@@ -24,17 +24,17 @@ const createTables = () => connection.raw(`
 			num_sequences_total INT NOT NULL
 		);
 `)
-	.then(() => { console.log('Tabelas criadas'); })
+	.then(() => { console.log('Tabela de "casos de covid por data" criada'); })
 	.catch(()=> printError);
 
-const insertUsers = () => connection('covid_cases_by_date')
+const insertCasesData = () => connection('covid_cases_by_date')
 	.insert(jsonData)
-	.then(() => { console.log('Usuários criados'); })
+	.then(() => { console.log('Os dados sobre os casos foram inseridos no banco de dados.'); })
 	.catch(printError);
 
 const closeConnection = () => { connection.destroy(); };
 
 converToJson()
 	.then(createTables)
-	.then(insertUsers)
+	.then(insertCasesData)
 	.finally(closeConnection);
