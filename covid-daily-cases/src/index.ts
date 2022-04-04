@@ -1,9 +1,8 @@
 import express from 'express';
 import cors from 'cors';
 import { AddressInfo } from 'net';
-import connection from './connection';
-import { Request, Response } from 'express';
 import serverStatus from './endpoints/serverStatus';
+import casesByDate from './endpoints/casesByDate';
 
 const app = express();
 
@@ -25,7 +24,7 @@ app.get('/', serverStatus);
 
 // [GET]/cases/:date/count: Listar todos os registros da base de dados no dia selecionado, agrupados por país e separados por variante.
 
-app.get('/cases/:date/count', serverStatus);
+app.get('/cases/:date/count', casesByDate);
 
 // [GET]/cases/:date/cumulative: Listar todos os registros da base de dados, retornando a soma dos casos registrados de acordo com a data selecionada, agrupados por país e separados por variante.
 
