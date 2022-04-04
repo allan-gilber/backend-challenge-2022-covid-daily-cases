@@ -5,3 +5,11 @@ export type covidDataStructure = {
     percentageOfSequences:number,
     totalOfSequencesNumbers:number
 }
+
+export type dateObject = {
+    date: string
+}
+
+export type dataBaseDateList ={
+    [key: string] : dateObject
+}
