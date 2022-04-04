@@ -34,5 +34,7 @@ $ npm run dev-start
 # Para iniciar o projeto em produção com a build e transpile dos arquivos em JS:
 $ npm start
 
-# O servidor iniciará na porta configurada no arquivo ".env", caso não haja uma porta especificada, o servidor optará pela porta "3003" - link <http://localhost:3003>
+# O servidor iniciará na porta configurada no arquivo ".env", 
+# caso não haja uma porta especificada, o servidor optará pela porta "3003"
+# no seguinte link: <http://localhost:3003>
 ```
