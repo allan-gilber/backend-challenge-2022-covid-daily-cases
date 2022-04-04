@@ -3,6 +3,7 @@ import cors from 'cors';
 import { AddressInfo } from 'net';
 import serverStatus from './endpoints/serverStatus';
 import casesByDate from './endpoints/casesByDate';
+import avaibleDatesFromDatasheet from './endpoints/avaibleDatesFromDatasheet';
 
 const app = express();
 
@@ -29,3 +30,5 @@ app.get('/cases/:date/count', casesByDate);
 // [GET]/cases/:date/cumulative: Listar todos os registros da base de dados, retornando a soma dos casos registrados de acordo com a data selecionada, agrupados por país e separados por variante.
 
 // [GET]/dates: Listar as datas disponíveis no dataset
+
+app.get('/dates', avaibleDatesFromDatasheet);

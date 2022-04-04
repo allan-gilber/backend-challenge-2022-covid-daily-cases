@@ -15,7 +15,7 @@ export default async function casesByDate (
 		}
 
 		await connection.raw(`
-		SELECT  location as location, variant as variant, num_sequences as "numberOfSequences", perc_sequences as "percentageOfSequences", num_sequences_total as "totalOfSequencesNumbers" 
+		SELECT  location, variant, num_sequences as "numberOfSequences", perc_sequences as "percentageOfSequences", num_sequences_total as "totalOfSequencesNumbers" 
 		FROM covid_cases_by_date 
 		WHERE covid_cases_by_date.date = "${date}" 
 		GROUP BY location, variant
@@ -45,6 +45,6 @@ export default async function casesByDate (
 				res.status(200).send([finalObject]);
 			});
 	} catch (error){
-		res.status(200).send(`error: ${error}`);
+		res.status(500).send(`Error: ${error}`);
 	}
 }
