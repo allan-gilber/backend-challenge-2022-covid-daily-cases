@@ -33,6 +33,11 @@ $ cd ./covid-daily-cases
 # Install the necessary dependencies with:
 $ npm i
 
+# Config your local variables in a .env file in the root directory of the project 
+# so you can connect to your MYSQL database(more info below)
+# After configuring the access, run the script to create and populate your DB:
+$ npm run migrations
+
 # To start the project as a dev without transpiling to JavaScript use the following command:
 $ npm run dev-start
 
@@ -44,8 +49,8 @@ $ npm start
 
 
 
-## IMPORTANT
-Don't forget to config the local variables in a ".env" file located in the root folder of the project. Just create a new file named ".env" and insert the following text:
+## .ENV - IMPORTANT
+Don't forget to config the local variables in a ".env" file located in the root folder of the project. Just create a new file named ".env" and insert the following text, substituting with your information:
 ```
 DB_HOST = (link to your host)
 DB_USER = (user)
@@ -57,4 +62,5 @@ DB_SCHEMA = (database/schema)
 
 ## API documentation
 
-All information on how to use the API can be found [here](https://documenter.getpostman.com/view/17593079/UVyuTFeD)
+
+All information on how to use the API can be found <a href="https://documenter.getpostman.com/view/17593079/UVyuTFeD" target="_blank">here</a>.
