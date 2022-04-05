@@ -15,11 +15,11 @@ export default async function sumOfCasesUntilDate (
 		}
 
 		await connection.raw(`
-            SELECT location, variant, SUM(num_sequences) as "numberOfSequences", AVG(perc_sequences) as "percentageOfSequences", SUM(num_sequences_total) as "totalOfSequencesNumbers" 
-            FROM covid_cases_by_date
-            WHERE date <= "${date}"
-            GROUP BY variant, location
-            ORDER BY location, variant ASC;
+			SELECT location, variant, SUM(num_sequences) as "numberOfSequences", CAST(AVG(perc_sequences) as DECIMAL(10,2)) as "percentageOfSequences", SUM(num_sequences_total) as "totalOfSequencesNumbers" 
+			FROM covid_cases_by_date
+			WHERE date <= "${date}"
+			GROUP BY variant, location
+			ORDER BY location, variant ASC;
 		`)
 			.then((data:[covidDatabaseResponseStructure[]]) => {
 				if(data[0].length){
