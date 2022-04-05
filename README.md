@@ -1,7 +1,7 @@
 # Backend Challenge 🏅 2022 - Covid Daily Cases
 ## This is a challenge by Coodesh
 
-API created for processing covid cases data from [kaggle 'Omicron daily cases by country (COVID-19 variant)'](https://www.kaggle.com/datasets/yamqwe/omicron-covid19-variant-daily-cases). Database was downloaded in 01/04/2022.
+API created for processing covid cases data from [kaggle 'Omicron daily cases by country (COVID-19 variant)'](https://www.kaggle.com/datasets/yamqwe/omicron-covid19-variant-daily-cases). Downloaded in 01/04/2022.
 
 
 
