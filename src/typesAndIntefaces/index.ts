@@ -1,4 +1,4 @@
-export type covidDataStructure = {
+export type covidDatabaseResponseStructure = {
     location: string, 
     variant:string,
     numberOfSequences: number,
