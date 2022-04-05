@@ -5,7 +5,7 @@ API created for processing covid cases data from [kaggle 'Omicron daily cases by
 
 
 
-## Utilzed languages:
+## Utilized languages:
 <div align="center"}>
   <img align="center" height="70px" src="https://cdn.worldvectorlogo.com/logos/logo-javascript.svg" />
   <img align="center" height="70px" src="https://cdn.worldvectorlogo.com/logos/typescript.svg" />
@@ -30,13 +30,13 @@ $ git clone https://github.com/allan-gilber/backend-challenge-2022-covid-daily-c
 # Run gitbash on the folder that was created
 $ cd ./covid-daily-cases
 
-# Install the encessary dependencies with:
+# Install the necessary dependencies with:
 $ npm i
 
 # To start the project as a dev without transpiling to JavaScript use the following command:
 $ npm run dev-start
 
-# OR if you want to transpile all files to JavaScript before runing, use the follwing comand:
+# OR if you want to transpile all files to JavaScript before running, use the following command:
 $ npm start
 
 # The server will start on the configured port in the .env file or the default "3003".
