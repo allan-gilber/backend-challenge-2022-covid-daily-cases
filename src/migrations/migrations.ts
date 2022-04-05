@@ -1,14 +1,14 @@
 import  connection  from '../connection';
 import csvToJson from 'csvtojson';
-import {covidDataStructure} from '../typesAndIntefaces';
+import {covidDatabaseResponseStructure} from '../typesAndIntefaces';
 
 const printError = (error: any) => { console.log(error.sqlMessage || error.message); };
 
-let jsonData: null | covidDataStructure[] = null;
+let jsonData: null | covidDatabaseResponseStructure[] = null;
 
-const converToJson = async () => {
+const convertToJson = async () => {
 	await csvToJson().fromFile('./src/data/covid-variants.csv').then(
-		(data: covidDataStructure[]): void => {
+		(data: covidDatabaseResponseStructure[]): void => {
 			jsonData = data;
 		}
 	);
@@ -20,7 +20,7 @@ const createTables = () => connection.raw(`
 			date DATE NOT NULL,
 			variant VARCHAR(255) NOT NULL,
 			num_sequences INT NOT NULL,
-			perc_sequences FLOAT NOT NULL,
+			perc_sequences DECIMAL(10,2) NOT NULL,
 			num_sequences_total INT NOT NULL
 		);
 `)
@@ -34,7 +34,7 @@ const insertCasesData = () => connection('covid_cases_by_date')
 
 const closeConnection = () => { connection.destroy(); };
 
-converToJson()
+convertToJson()
 	.then(createTables)
 	.then(insertCasesData)
 	.finally(closeConnection);

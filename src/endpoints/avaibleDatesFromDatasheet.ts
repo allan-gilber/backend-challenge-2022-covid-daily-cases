@@ -23,6 +23,6 @@ export default async function avaibleDatesFromDatasheet (
 				console.log('avaibleDatesFromDatasheet: ', error);
 			});
 	} catch (error){
-		res.status(500).send(`Error: ${error}`);
+		res.status(500).send({ message: `Error: ${error}`});
 	}
 }
