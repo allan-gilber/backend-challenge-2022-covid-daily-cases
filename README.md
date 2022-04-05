@@ -1,9 +1,11 @@
 # Backend Challenge 🏅 2022 - Covid Daily Cases
 ## This is a challenge by Coodesh
 
-API desenvolvida para processamento de dados relativos aos diagnósticos de COVID pelo mundo.
+API created for processing covid cases data from [kaggle 'Omicron daily cases by country (COVID-19 variant)'](https://www.kaggle.com/datasets/yamqwe/omicron-covid19-variant-daily-cases). Database was downloaded in 01/04/2022.
 
-## Linguagens utilizadas:
+
+
+## Utilzed languages:
 <div align="center"}>
   <img align="center" height="70px" src="https://cdn.worldvectorlogo.com/logos/logo-javascript.svg" />
   <img align="center" height="70px" src="https://cdn.worldvectorlogo.com/logos/typescript.svg" />
@@ -12,29 +14,47 @@ API desenvolvida para processamento de dados relativos aos diagnósticos de COVI
   <img align="center" height="70px" src="https://cdn.worldvectorlogo.com/logos/git.svg" />
 </div>
 
-## Pré-requisitos:
 
-Para executar o projeto, você deverá ter instalado em sua máquina as seguintes ferramentas: Git, Node.js, Typescript e o VSCode(ou IDE equivalente).
 
-## Como rodar o projeto:
+## Prerequisites:
+To run the project you will need to have installed the following tools: Gitbash, Node.js, Typescript e o VSCode(or similar IDE).
+
+
+
+## How to run the project with Gitbash:
 
 ```bash
-# Clone este repositório:
-$ git clone https://github.com/mhsouza88/hackifood.git
+# Clone the repository:
+$ git clone https://github.com/allan-gilber/backend-challenge-2022-covid-daily-cases.git
 
-# Abra a pasta que foi clonada em seu terminal e acesse a pasta do projeto com o comando:
+# Run gitbash on the folder that was created
 $ cd ./covid-daily-cases
 
-# Instale as dependências necessárias com o comando:
+# Install the encessary dependencies with:
 $ npm i
 
-# Para iniciar o projeto em desenvolvimento
+# To start the project as a dev without transpiling to JavaScript use the following command:
 $ npm run dev-start
 
-# Para iniciar o projeto em produção com a build e transpile dos arquivos em JS:
+# OR if you want to transpile all files to JavaScript before runing, use the follwing comand:
 $ npm start
 
-# O servidor iniciará na porta configurada no arquivo ".env", 
-# caso não haja uma porta especificada, o servidor optará pela porta "3003"
-# no seguinte link: <http://localhost:3003>
+# The server will start on the configured port in the .env file or the default "3003".
 ```
+
+
+
+## IMPORTANT
+Don't forget to config the local variables in a ".env" file located in the root folder of the project. Just create a new file named ".env" and insert the following text:
+```
+DB_HOST = (link to your host)
+DB_USER = (user)
+DB_PASSWORD = (password)
+DB_SCHEMA = (database/schema)
+```
+
+
+
+## API documentation
+
+All information on how to use the API can be found [here](https://documenter.getpostman.com/view/17593079/UVyuTFeD)
