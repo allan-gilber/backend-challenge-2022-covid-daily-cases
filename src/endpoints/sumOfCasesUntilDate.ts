@@ -9,8 +9,8 @@ export default async function sumOfCasesUntilDate (
 ): Promise<void> {
 	try {
 		const { date } = req.params;
-		if (date.length !== 10 || !isValid(new Date(date)) ){
-			throw new Error('invalidDate');
+		if (typeof date !== 'string' || date.length !== 10 || !isValid(new Date(date)) ){
+			throw 'invalidDate';
 		}
 
 		await connection.raw(`
@@ -49,14 +49,14 @@ export default async function sumOfCasesUntilDate (
 			});
 	} catch (error){
 		console.log('sumOfCasesUntilDate error: ', error);
-		if(error == 'notFound'){
+		if(error === 'notFound'){
 			console.log('sumOfCasesUntilDate: nothing was found');
 			res.status(404).send({message: 'Your request returned no results'});
 			return;
 		}
-		if(error == 'invalidDate'){
+		if(error === 'invalidDate'){
 			console.log('sumOfCasesUntilDate: a invalid date was provided');
-			res.status(400).send({message: 'Please, send a valid dateformat(YYYY/MM/DD)'});
+			res.status(400).send({message: 'Please send a valid dateformat (YYYY/MM/DD)'});
 			return;
 		}
 		console.log('sumOfCasesUntilDate error: the server didnt know how to handle the error.');
