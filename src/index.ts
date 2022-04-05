@@ -17,7 +17,6 @@ const server = app.listen(process.env.PORT || 3003, () => {
 		return console.log(`Welcome aboard, Captain. Server is running in http://localhost:${address.port}`);
 	} 
 	console.error('Failure upon starting server.');
-	
 });
 
 // [GET]/: Retornar um Status: 200 e uma Mensagem "Backend Challenge 2021 🏅 - Covid Daily Cases"
