@@ -18,7 +18,7 @@ export default async function avaibleDatesFromDatasheet (
 					throw 'emptyAnswer';
 				}
 				const formatedDataArray  = data[0].map((date: {date: any})=>{
-					return format(date.date, 'yyyy/MM/dd');
+					return format(date.date, 'yyyy-MM-dd');
 				});
 				res.status(200).send({avaibleDates: formatedDataArray});
 			}).catch((error)=>{
