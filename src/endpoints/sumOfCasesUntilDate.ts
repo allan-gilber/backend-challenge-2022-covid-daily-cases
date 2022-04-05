@@ -9,8 +9,7 @@ export default async function sumOfCasesUntilDate (
 ): Promise<void> {
 	try {
 		const { date } = req.params;
-
-		if (date.length !== 10 || isValid(new Date(date)) ){
+		if (date.length !== 10 || !isValid(new Date(date)) ){
 			throw new Error('invalidDate');
 		}
 
@@ -22,8 +21,8 @@ export default async function sumOfCasesUntilDate (
 			ORDER BY location, variant ASC;
 		`)
 			.then((data:[covidDatabaseResponseStructure[]]) => {
-				if(data[0].length){
-					throw new Error('notFound');
+				if(!data[0].length){
+					throw 'notFound';
 				}
 				const finalObject: any = {} ;
 
@@ -49,14 +48,18 @@ export default async function sumOfCasesUntilDate (
 				res.status(200).send({data: [finalObject]});
 			});
 	} catch (error){
-		if(error == 'invalidDate'){
-			console.log('sumOfCasesUntilDate: a invalid date was provided');
-			res.status(400).send({message: 'Please send a valid date: YYYY/MM/DD'});
-		}
+		console.log('sumOfCasesUntilDate error: ', error);
 		if(error == 'notFound'){
 			console.log('sumOfCasesUntilDate: nothing was found');
-			res.status(400).send({message: 'Your request returned no results'});
+			res.status(404).send({message: 'Your request returned no results'});
+			return;
 		}
+		if(error == 'invalidDate'){
+			console.log('sumOfCasesUntilDate: a invalid date was provided');
+			res.status(400).send({message: 'Please, send a valid dateformat(YYYY/MM/DD)'});
+			return;
+		}
+		console.log('sumOfCasesUntilDate error: the server didnt know how to handle the error.');
 		res.status(500).send({message: 'Internal server error'});
 	}
 }
