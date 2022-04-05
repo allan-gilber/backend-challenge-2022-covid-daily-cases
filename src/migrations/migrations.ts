@@ -24,12 +24,12 @@ const createTables = () => connection.raw(`
 			num_sequences_total INT NOT NULL
 		);
 `)
-	.then(() => { console.log('Tabela de "casos de covid por data" criada'); })
+	.then(() => { console.log('Table of "covid cases by date" created!'); })
 	.catch(()=> printError);
 
 const insertCasesData = () => connection('covid_cases_by_date')
 	.insert(jsonData)
-	.then(() => { console.log('Os dados sobre os casos foram inseridos no banco de dados.'); })
+	.then(() => { console.log('Data of covid cases has successfully been inserted into the database!'); })
 	.catch(printError);
 
 const closeConnection = () => { connection.destroy(); };
